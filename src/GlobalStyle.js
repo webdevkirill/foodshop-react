@@ -29,7 +29,7 @@ export const GlobalStyle = createGlobalStyle`
         margin: 0;
     }
     h1, h2, h3 {
-        font-family: Pacifico;
+        font-family: Pacifico, cursive;
     }
     img {
         max-width: 100%;
