@@ -2,6 +2,7 @@ import {createGlobalStyle} from 'styled-components';
 export const GlobalStyle = createGlobalStyle`
     html {
         box-sizing: border-box;
+        font-size: 20px;
     }
 
     *, *::before, *::after {
@@ -12,7 +13,6 @@ export const GlobalStyle = createGlobalStyle`
         margin: 0;
         background-color: #f0f0f0;
         font-family: Roboto, sans-serif;
-        font-size: 20px;
         color: #000;
     }
     a {

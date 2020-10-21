@@ -1,18 +1,18 @@
 import React from 'react';
 import dbMenu from '../../DBMenu';
 import { ListItem } from './ListItem/ListItem';
-import { MenuStyled } from './MenuStyles';
+import { MenuStyled, SectionMenu } from './MenuStyles';
 
 export const Menu = () => (
     <MenuStyled>
-        <section>
+        <SectionMenu>
             <h2>Бургеры</h2>
             <ListItem itemList={dbMenu.burger} />
-        </section>
+        </SectionMenu>
 
-        <section>
+        <SectionMenu>
             <h2>Закуски / Напитки</h2>
             <ListItem itemList={dbMenu.other} />
-        </section>
+        </SectionMenu>
     </MenuStyled>
 )

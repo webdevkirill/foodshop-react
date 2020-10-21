@@ -1,12 +1,18 @@
 import React from 'react';
-import { Item } from './ListItemStyles';
+import { Item, ListItemStyled } from './ListItemStyles';
 
 export const ListItem = ({itemList}) => (
-    <ul>
+    <ListItemStyled>
         {itemList.map(item => (
-            <Item key={item.id}>
-                {item.name}
+            <Item 
+                key={item.id} 
+                img={item.img}
+            >
+                <p>{item.name}</p>
+                <p>{item.price.toLocaleString(
+                    'ru-RU', 
+                    {style: 'currency', currency: 'RUB'})}</p>
             </Item>
         ))}
-    </ul>
+    </ListItemStyled>
 )
