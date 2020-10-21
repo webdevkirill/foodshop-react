@@ -1,4 +1,4 @@
-const dbMenu = {
+export const dbMenu = {
 	burger: [
 		{
 			name: 'JS Burger',
