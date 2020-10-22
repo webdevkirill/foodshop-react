@@ -40,6 +40,13 @@ export const GlobalStyle = createGlobalStyle`
     }
     button, input, input:active, textarea, textarea:active {
         outline: none;
-        font-family: inherit;
+        font: inherit;
+    }
+    input[type="number"] {
+        -moz-appearance: textfield;
+    }
+    input::-webkit-outer-spin-button, 
+    input::-webkit-inner-spin-button {
+        -webkit-appearance: none;
     }
 `;
