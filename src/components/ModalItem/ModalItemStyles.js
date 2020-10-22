@@ -41,3 +41,8 @@ export const HeaderContent = styled.div`
     font-weight: 700;
     font-family: 'Pacifico', cursive;
 `;
+
+export const TotalPriceItem = styled.div`
+    display: flex;
+    justify-content: space-between;
+`;

@@ -1,8 +1,9 @@
 import React from 'react';
 import { useCount } from '../../hooks/useCount';
 import { ButtonCheckout } from '../../UI/ButtonCheckout';
+import { totalPriceItems, formatCurrency } from '../../utils/utils';
 import { CountItem } from './CountItem/CountItem';
-import { Banner, HeaderContent, ModalContent, ModalItemStyled, Overlay } from './ModalItemStyles';
+import { Banner, HeaderContent, ModalContent, ModalItemStyled, Overlay, TotalPriceItem } from './ModalItemStyles';
 
 export const ModalItem = ({openItem, setOpenItem, orders, setOrders}) => {
 
@@ -15,7 +16,8 @@ export const ModalItem = ({openItem, setOpenItem, orders, setOrders}) => {
     }
 
     const order = {
-        ...openItem
+        ...openItem,
+        count: counter.count
     };
 
     const addToOrder = () => {
@@ -30,9 +32,13 @@ export const ModalItem = ({openItem, setOpenItem, orders, setOrders}) => {
                 <ModalContent>
                     <HeaderContent>
                         <div>{openItem.name}</div>
-                        <div>{openItem.price}</div>
+                        <div>{formatCurrency(openItem.price)}</div>
                     </HeaderContent>
                     <CountItem {...counter} />
+                    <TotalPriceItem>
+                        <span>Цена:</span>
+                        <span>{formatCurrency(totalPriceItems(order))}</span>
+                    </TotalPriceItem>
                     <ButtonCheckout onClick={addToOrder}>
                         Добавить
                     </ButtonCheckout>
