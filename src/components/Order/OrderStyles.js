@@ -38,3 +38,7 @@ export const Total = styled.div`
 export const EmptyList = styled.p`
     text-align: center;
 `;
+
+export const TotalOrderPrice = styled.span`
+    margin-left: 1rem;
+`;

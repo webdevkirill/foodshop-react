@@ -1,9 +1,18 @@
 import React from 'react';
 import { ButtonCheckout } from '../../UI/ButtonCheckout';
+import { totalPriceItems, formatCurrency } from '../../utils/utils';
 import { OrderListItem } from './OrderListItem/OrderListItem';
-import { EmptyList, OrderContent, OrderList, OrderStyled, OrderTitle, Total } from './OrderStyles';
+import { EmptyList, OrderContent, OrderList, OrderStyled, OrderTitle, Total, TotalOrderPrice } from './OrderStyles';
 
-export const Order = ({orders, setOrders}) => {
+export const Order = ({orders}) => {
+
+    let totalOrderCount = 0; 
+    let totalOrderPrice = 0;
+
+    orders.forEach((item) => {
+        totalOrderCount += item.count;
+        totalOrderPrice += totalPriceItems(item);
+    })
 
     return (
         <OrderStyled>
@@ -20,8 +29,8 @@ export const Order = ({orders, setOrders}) => {
             </OrderContent>
             <Total>
                 <span>Итого</span>
-                <span>5</span>
-                <span>850 Р</span>
+                <span>{totalOrderCount}</span>
+                <TotalOrderPrice>{formatCurrency(totalOrderPrice)}</TotalOrderPrice>
             </Total>
             <ButtonCheckout>Оформить</ButtonCheckout>
         </OrderStyled>
