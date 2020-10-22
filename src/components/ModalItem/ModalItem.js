@@ -2,12 +2,21 @@ import React from 'react';
 import { ButtonCheckout } from '../../UI/ButtonCheckout';
 import { Banner, HeaderContent, ModalContent, ModalItemStyled, Overlay } from './ModalItemStyles';
 
-export const ModalItem = ({openItem, setOpenItem}) => {
+export const ModalItem = ({openItem, setOpenItem, orders, setOrders}) => {
 
     const closeModal = (e) => {
         if (e.target.id === 'overlay') {
-            setOpenItem(null)
+            setOpenItem(null);
         }
+    }
+
+    const order = {
+        ...openItem
+    };
+
+    const addToOrder = () => {
+        setOrders([...orders, order]);
+        setOpenItem(null);
     }
 
     return(
@@ -19,7 +28,7 @@ export const ModalItem = ({openItem, setOpenItem}) => {
                         <div>{openItem.name}</div>
                         <div>{openItem.price}</div>
                     </HeaderContent>
-                    <ButtonCheckout>
+                    <ButtonCheckout onClick={addToOrder}>
                         Добавить
                     </ButtonCheckout>
                 </ModalContent>

@@ -34,3 +34,7 @@ export const Total = styled.div`
         flex-grow: 1;
     }
 `;
+
+export const EmptyList = styled.p`
+    text-align: center;
+`;
