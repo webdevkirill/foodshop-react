@@ -1,5 +1,6 @@
 import React from 'react';
 import { ButtonCheckout } from '../../UI/ButtonCheckout';
+import { OrderListItem } from './OrderListItem/OrderListItem';
 import { OrderContent, OrderList, OrderStyled, OrderTitle, Total } from './OrderStyles';
 
 export const Order = () => {
@@ -9,7 +10,9 @@ export const Order = () => {
             <OrderTitle>Ваш заказ</OrderTitle>
             <OrderContent>
                 <OrderList>
-
+                    <OrderListItem />
+                    <OrderListItem />
+                    <OrderListItem />
                 </OrderList>
             </OrderContent>
             <Total>

@@ -16,6 +16,7 @@ export const OrderStyled = styled.section`
 export const OrderTitle = styled.h2`
     text-align: center;
     text-transform: uppercase;
+    margin-bottom: 1.5rem;
 `;
 
 export const OrderContent = styled.div`
@@ -28,6 +29,7 @@ export const OrderList = styled.ul`
 
 export const Total = styled.div`
     display: flex;
+    margin-bottom: 1.5rem;
     & span:first-child {
         flex-grow: 1;
     }
