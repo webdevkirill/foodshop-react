@@ -1,5 +1,5 @@
 import React from 'react';
-import { H1, Login, Logo, LogoImg, NavBarStyled } from './navBarStyles';
+import { H1, Login, Logo, LogoImg, NavBarStyled } from './NavBarStyles';
 import logoImg from '../../img/logo.svg';
 import signImg from '../../img/sign.svg';
 

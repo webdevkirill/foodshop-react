@@ -9,7 +9,7 @@ export const NavBarStyled = styled.header`
     justify-content: space-between;
     align-items: center;
     height: 4rem;
-    width: 100vw;
+    width: 100%;
     padding: 0.75rem;
     background-color: #299B01;
     color: #fff;
