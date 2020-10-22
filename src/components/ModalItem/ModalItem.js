@@ -1,5 +1,6 @@
 import React from 'react';
-import { Banner, ButtonCheckout, HeaderContent, ModalContent, ModalItemStyled, Overlay } from './ModalItemStyles';
+import { ButtonCheckout } from '../../UI/ButtonCheckout';
+import { Banner, HeaderContent, ModalContent, ModalItemStyled, Overlay } from './ModalItemStyles';
 
 export const ModalItem = ({openItem, setOpenItem}) => {
 

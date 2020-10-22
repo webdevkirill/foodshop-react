@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { Menu } from './components/Menu/Menu';
 import { ModalItem } from './components/ModalItem/ModalItem';
 import { NavBar } from './components/NavBar/NavBar';
+import { Order } from './components/Order/Order';
 import { GlobalStyle } from './GlobalStyle';
 
 function App() {
@@ -12,6 +13,7 @@ function App() {
         <>
             <GlobalStyle />
             <NavBar />
+            <Order/>
             <Menu setOpenItem={setOpenItem} />
             {openItem && <ModalItem openItem={openItem} setOpenItem={setOpenItem} />}
         </>
