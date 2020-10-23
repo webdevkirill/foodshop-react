@@ -10,9 +10,16 @@ export const ButtonCheckout = styled.button`
     border-color: transparent;
     color: #fff;
     transition: all 0.3s;
+    border-width: 1px;
+    border-style: solid;
     &:hover {
         color: #299B01;
         background-color: #fff;
         border-color: #299B01;
+    }
+    &:disabled {
+        color: #bbb;
+        background-color: #ccc;
+        border-color: #ccc;
     }
 `;

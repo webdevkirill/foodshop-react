@@ -9,7 +9,7 @@ const getToppings = (toppings) => {
             }))
         )  
     } else {
-        return null
+        return []
     }
 }
     

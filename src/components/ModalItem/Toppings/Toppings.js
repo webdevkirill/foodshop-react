@@ -1,24 +1,26 @@
 import React from 'react';
-import { ToppingsCheckbox, ToppingsLabel, ToppingsWrap } from './ToppingsStyles';
+import { ModalLabel } from '../../../UI/Modal/ModalLabel';
+import { ModalCheckbox } from '../../../UI/Modal/ModalCheckbox';
+import { ModalWrap } from '../../../UI/Modal/ModalWrap';
 
 export const Toppings = ({toppings, checkToppings}) => {
 
     return (
         <>
             <h3>Добавки</h3>
-            <ToppingsWrap>
+            <ModalWrap>
                 {toppings.map((topping, index) => (
-                    <ToppingsLabel key={index}>
-                        <ToppingsCheckbox 
+                    <ModalLabel key={index}>
+                        <ModalCheckbox 
                             type="checkbox"
                             checked={topping.checked}
                             onChange={() => checkToppings(index)}
                         />
                         {topping.name}
-                    </ToppingsLabel>
+                    </ModalLabel>
                 ))}
                 
-            </ToppingsWrap>
+            </ModalWrap>
         </>
     )
 }
