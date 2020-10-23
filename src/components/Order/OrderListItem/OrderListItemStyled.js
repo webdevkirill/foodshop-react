@@ -4,6 +4,8 @@ import trashLogo from '../../../img/trash.svg';
 export const OrderItemStyled = styled.li`
     display: flex;
     margin: 0.75rem 0;
+    flex-wrap: wrap;
+    max-width: 17rem;
 `;
 
 export const TrashButton = styled.button`
@@ -23,4 +25,10 @@ export const ItemPrice = styled.span`
     margin: 0 0.5rem 0 1rem;
     min-width: 3.25rem;
     text-align: right;
+`;
+
+export const Toppings = styled.p`
+    color: #9a9a9a;
+    font-size: 0.7rem;
+    width: 100%;
 `;
