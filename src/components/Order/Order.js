@@ -4,7 +4,7 @@ import { totalPriceItems, formatCurrency } from '../../utils/utils';
 import { OrderListItem } from './OrderListItem/OrderListItem';
 import { EmptyList, OrderContent, OrderList, OrderStyled, OrderTitle, Total, TotalOrderPrice } from './OrderStyles';
 
-export const Order = ({orders, setOrders}) => {
+export const Order = ({orders, setOrders, setOpenItem}) => {
 
     let totalOrderCount = 0; 
     let totalOrderPrice = 0;
@@ -30,7 +30,8 @@ export const Order = ({orders, setOrders}) => {
                             key={order.name + index}
                             order={order}
                             index={index}
-                            deleteItem={deleteItem} />)
+                            deleteItem={deleteItem}
+                            setOpenItem={setOpenItem} />)
                     }
                 </OrderList> : 
                 <EmptyList>Список заказов пуст</EmptyList>

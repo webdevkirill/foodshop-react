@@ -16,7 +16,7 @@ function App() {
         <>
             <GlobalStyle />
             <NavBar />
-            <Order {...ordersHook} />
+            <Order {...ordersHook} setOpenItem={setOpenItem} />
             <Menu setOpenItem={setOpenItem} />
             {openItem && 
                 <ModalItem openItem={openItem} setOpenItem={setOpenItem} {...ordersHook} />
