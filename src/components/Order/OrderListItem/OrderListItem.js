@@ -3,7 +3,7 @@ import { ItemName, ItemPrice, OrderItemStyled, TrashButton, Toppings } from './O
 import { formatCurrency, totalPriceItems } from '../../../utils/utils';
 
 
-export const OrderListItem = ({order}) => {
+export const OrderListItem = ({order, index, deleteItem}) => {
 
     const toppings = order.toppings
         .filter(item => item.checked)
@@ -15,7 +15,7 @@ export const OrderListItem = ({order}) => {
             <ItemName>{order.name} {order.choice} </ItemName>
             <span>{order.count}</span>
             <ItemPrice>{formatCurrency(totalPriceItems(order))}</ItemPrice>
-            <TrashButton /> 
+            <TrashButton onClick={() => deleteItem(index)} /> 
             {toppings && <Toppings>Допы: {toppings}</Toppings>}
         </OrderItemStyled>
     )
