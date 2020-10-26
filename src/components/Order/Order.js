@@ -30,6 +30,7 @@ export const Order = ({
             email: autentification.email,
             order: newOrder
         });
+        setOrders([]);
     };
 
     let totalOrderCount = 0; 

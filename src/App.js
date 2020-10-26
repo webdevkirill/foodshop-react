@@ -10,6 +10,7 @@ import firebase from 'firebase/app';
 import 'firebase/auth';
 import 'firebase/database';
 import { useAuth } from './hooks/useAuth';
+import { useModal } from './hooks/useModal';
 
 
 const firebaseConfig = {
@@ -31,6 +32,7 @@ function App() {
 
     const {openItem, setOpenItem} = useOpenItem();
     const ordersHook = useOrders();
+    useModal(openItem);
 
     return (
         <>
