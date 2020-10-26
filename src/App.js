@@ -8,6 +8,7 @@ import { useOpenItem } from './hooks/useOpenItem';
 import { useOrders } from './hooks/useOrders';
 import firebase from 'firebase/app';
 import 'firebase/auth';
+import 'firebase/database';
 import { useAuth } from './hooks/useAuth';
 
 
@@ -35,7 +36,11 @@ function App() {
         <>
             <GlobalStyle />
             <NavBar {...auth} />
-            <Order {...ordersHook} setOpenItem={setOpenItem} />
+            <Order 
+                {...ordersHook} 
+                setOpenItem={setOpenItem} 
+                {...auth}
+                firebaseDatabase={firebase.database} />
             <Menu setOpenItem={setOpenItem} />
             {openItem && 
                 <ModalItem openItem={openItem} setOpenItem={setOpenItem} {...ordersHook} />

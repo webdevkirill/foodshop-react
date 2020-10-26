@@ -1,10 +1,36 @@
 import React from 'react';
 import { ButtonCheckout } from '../../UI/ButtonCheckout';
-import { totalPriceItems, formatCurrency } from '../../utils/utils';
+import { totalPriceItems, formatCurrency, projection } from '../../utils/utils';
 import { OrderListItem } from './OrderListItem/OrderListItem';
 import { EmptyList, OrderContent, OrderList, OrderStyled, OrderTitle, Total, TotalOrderPrice } from './OrderStyles';
 
-export const Order = ({orders, setOrders, setOpenItem}) => {
+export const Order = ({
+    orders, setOrders, setOpenItem, 
+    autentification, logIn, firebaseDatabase
+}) => {
+
+    const dataBase = firebaseDatabase();
+    const rulesData = {
+        name: ['name'],
+        price: ['price'],
+        count: ['count'],
+        toppings: [
+            'topping', 
+            toppings => toppings
+                .filter(topping => topping.checked)
+                .map(topping => topping.name),
+            toppings => toppings.length > 0 ? toppings : 'no toppings'
+        ],
+        choice: ['choice', item => item ? item : 'no choices']
+    }
+    const sendOrder = () => {
+        const newOrder = orders.map(projection(rulesData));
+        dataBase.ref('orders').push().set({
+            clientName: autentification.displayName,
+            email: autentification.email,
+            order: newOrder
+        });
+    };
 
     let totalOrderCount = 0; 
     let totalOrderPrice = 0;
@@ -42,7 +68,13 @@ export const Order = ({orders, setOrders, setOpenItem}) => {
                 <span>{totalOrderCount}</span>
                 <TotalOrderPrice>{formatCurrency(totalOrderPrice)}</TotalOrderPrice>
             </Total>
-            <ButtonCheckout>Оформить</ButtonCheckout>
+            <ButtonCheckout onClick={() => {
+                if (autentification) {
+                    sendOrder();
+                }  else {
+                    logIn();
+                }
+            }}>Оформить</ButtonCheckout>
         </OrderStyled>
     )
 }
