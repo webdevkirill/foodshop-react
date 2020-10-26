@@ -8,6 +8,8 @@ import { useOpenItem } from './hooks/useOpenItem';
 import { useOrders } from './hooks/useOrders';
 import firebase from 'firebase/app';
 import 'firebase/auth';
+import { useAuth } from './hooks/useAuth';
+
 
 const firebaseConfig = {
   apiKey: process.env.REACT_APP_APIKEY,
@@ -24,13 +26,15 @@ firebase.initializeApp(firebaseConfig);
 
 function App() {
 
+    const auth = useAuth(firebase.auth);
+
     const {openItem, setOpenItem} = useOpenItem();
     const ordersHook = useOrders();
 
     return (
         <>
             <GlobalStyle />
-            <NavBar />
+            <NavBar {...auth} />
             <Order {...ordersHook} setOpenItem={setOpenItem} />
             <Menu setOpenItem={setOpenItem} />
             {openItem && 

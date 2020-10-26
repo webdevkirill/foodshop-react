@@ -35,3 +35,20 @@ export const Login = styled.button`
     color: #fff;
     font-size: 0.8rem;
 `;
+
+export const User = styled.div`
+    display: flex;
+    align-items: center;
+    text-align: center;
+`;
+
+export const Logout = styled.span`
+    font-size: 1rem;
+    font-weight: 700;
+    cursor: pointer;
+    margin-right: 1.5rem;
+`;
+
+export const Figure = styled.figure`
+    margin: 0 1.5rem;
+`;
