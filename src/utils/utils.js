@@ -3,7 +3,8 @@ export const formatCurrency = (price) => price.toLocaleString('ru-RU',
 )
 
 export const totalPriceItems = (order) => {
-    const countToppings = order.toppings && order.toppings.filter(item => item.checked).length;
+    const countToppings = order.toppings ? order.toppings.filter(item => item.checked).length : 0;
     const priceToppings = order.price * 0.1 * countToppings;
+
     return (order.price + priceToppings) * order.count
 };

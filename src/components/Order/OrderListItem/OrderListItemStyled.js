@@ -6,6 +6,7 @@ export const OrderItemStyled = styled.li`
     margin: 0.75rem 0;
     flex-wrap: wrap;
     max-width: 17rem;
+    cursor: pointer;
 `;
 
 export const TrashButton = styled.button`

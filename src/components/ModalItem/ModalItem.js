@@ -11,9 +11,7 @@ import { Choices } from './Choises/Choices';
 
 export const ModalItem = ({openItem, setOpenItem, orders, setOrders}) => {
 
-    console.log(openItem)
-
-    const counter = useCount();
+    const counter = useCount(openItem.count);
     const {toppings, checkToppings} = useToppings(openItem);
     const {choice, changeChoices} = useChoices(openItem);
     const isEdit = openItem.index > -1;
@@ -67,7 +65,7 @@ export const ModalItem = ({openItem, setOpenItem, orders, setOrders}) => {
                     <ButtonCheckout 
                         onClick={isEdit ? editOrder : addToOrder}
                         disabled={order.choices && !order.choice}
-                        >Добавить
+                        >{isEdit ? 'Редактировать' : 'Добавить'}
                     </ButtonCheckout>
                 </ModalContent>
             </ModalItemStyled>
