@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { useCount } from '../../hooks/useCount';
 import { ButtonCheckout } from '../../UI/ButtonCheckout';
 import { totalPriceItems, formatCurrency } from '../../utils/utils';
@@ -9,9 +9,12 @@ import { useToppings } from '../../hooks/useToppings';
 import { useChoices } from '../../hooks/useChoices';
 import { Choices } from './Choises/Choices';
 import { Overlay } from '../../UI/Modal/Overlay';
+import { Context } from '../../context/context';
 
-export const ModalItem = ({openItem, setOpenItem, orders, setOrders}) => {
+export const ModalItem = () => {
 
+    const {openItem, setOpenItem, orders, setOrders} = useContext(Context);
+    
     const counter = useCount(openItem.count);
     const {toppings, checkToppings} = useToppings(openItem);
     const {choice, changeChoices} = useChoices(openItem);

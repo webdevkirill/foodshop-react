@@ -6,7 +6,7 @@ import { Context } from '../../context/context';
 
 export const NavBar = () => {
 
-    const {auth : {autentification, logIn, logOut} } = useContext(Context);
+    const {autentification, logIn, logOut} = useContext(Context);
 
     return (
         <NavBarStyled>

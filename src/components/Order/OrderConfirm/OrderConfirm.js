@@ -1,14 +1,17 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { Overlay } from '../../../UI/Modal/Overlay';
 import { OrderTitle, Total, TotalOrderPrice } from '../../../UI/Order/Order';
 import { ButtonCheckout } from '../../../UI/ButtonCheckout';
 import { totalPriceItems, formatCurrency, projection } from '../../../utils/utils';
 import { Header, Modal } from './OrderConfirmStyles';
+import { Context } from '../../../context/context';
 
-export const OrderConfirm = ({
-    orders, setOrders, autentification, 
-    setOpenOrderConfirm, firebaseDatabase
-}) => {
+export const OrderConfirm = () => {
+
+    const {
+        orders, setOrders, autentification, 
+        setOpenOrderConfirm, firebaseDatabase
+    } = useContext(Context);
 
     const dataBase = firebaseDatabase();
 

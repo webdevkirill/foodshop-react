@@ -1,9 +1,12 @@
-import React, { useRef } from 'react';
+import React, { useContext, useRef } from 'react';
 import { ItemName, ItemPrice, OrderItemStyled, TrashButton, Toppings } from './OrderListItemStyled';
 import { formatCurrency, totalPriceItems } from '../../../utils/utils';
+import { Context } from '../../../context/context';
 
 
-export const OrderListItem = ({order, index, deleteItem, setOpenItem}) => {
+export const OrderListItem = ({order, index, deleteItem}) => {
+
+    const {setOpenItem} = useContext(Context);
 
     const refDeleteButton = useRef(null);
 
