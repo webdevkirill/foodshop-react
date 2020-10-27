@@ -1,14 +1,17 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { Banner } from './Banner/Banner';
 import { ListItem } from './ListItem/ListItem';
 import { MenuStyled, SectionMenu } from './MenuStyles';
 import { useFetch } from '../../hooks/useFetch';
+import { Context } from '../../context/context';
 
-export const Menu = ({setOpenItem}) => {
+export const Menu = () => {
 
     const res = useFetch();
     const dbMenu = res.response;
     const error = res.error;
+
+    const {setOpenItem} = useContext(Context);
     
     return (
         <MenuStyled>

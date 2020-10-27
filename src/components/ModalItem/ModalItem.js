@@ -3,11 +3,12 @@ import { useCount } from '../../hooks/useCount';
 import { ButtonCheckout } from '../../UI/ButtonCheckout';
 import { totalPriceItems, formatCurrency } from '../../utils/utils';
 import { CountItem } from './CountItem/CountItem';
-import { Banner, HeaderContent, ModalContent, ModalItemStyled, Overlay, TotalPriceItem } from './ModalItemStyles';
+import { Banner, HeaderContent, ModalContent, ModalItemStyled, TotalPriceItem } from './ModalItemStyles';
 import { Toppings } from './Toppings/Toppings';
 import { useToppings } from '../../hooks/useToppings';
 import { useChoices } from '../../hooks/useChoices';
 import { Choices } from './Choises/Choices';
+import { Overlay } from '../../UI/Modal/Overlay';
 
 export const ModalItem = ({openItem, setOpenItem, orders, setOrders}) => {
 

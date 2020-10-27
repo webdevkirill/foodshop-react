@@ -1,37 +1,14 @@
 import React from 'react';
 import { ButtonCheckout } from '../../UI/ButtonCheckout';
-import { totalPriceItems, formatCurrency, projection } from '../../utils/utils';
+import { totalPriceItems, formatCurrency } from '../../utils/utils';
 import { OrderListItem } from './OrderListItem/OrderListItem';
-import { EmptyList, OrderContent, OrderList, OrderStyled, OrderTitle, Total, TotalOrderPrice } from './OrderStyles';
+import { EmptyList, OrderContent, OrderList, OrderStyled } from './OrderStyles';
+import { OrderTitle, Total, TotalOrderPrice } from '../../UI/Order/Order';
 
 export const Order = ({
     orders, setOrders, setOpenItem, 
-    autentification, logIn, firebaseDatabase
+    autentification, logIn, setOpenOrderConfirm
 }) => {
-
-    const dataBase = firebaseDatabase();
-    const rulesData = {
-        name: ['name'],
-        price: ['price'],
-        count: ['count'],
-        toppings: [
-            'topping', 
-            toppings => toppings
-                .filter(topping => topping.checked)
-                .map(topping => topping.name),
-            toppings => toppings.length > 0 ? toppings : 'no toppings'
-        ],
-        choice: ['choice', item => item ? item : 'no choices']
-    }
-    const sendOrder = () => {
-        const newOrder = orders.map(projection(rulesData));
-        dataBase.ref('orders').push().set({
-            clientName: autentification.displayName,
-            email: autentification.email,
-            order: newOrder
-        });
-        setOrders([]);
-    };
 
     let totalOrderCount = 0; 
     let totalOrderPrice = 0;
@@ -71,7 +48,7 @@ export const Order = ({
             </Total>
             <ButtonCheckout onClick={() => {
                 if (autentification) {
-                    sendOrder();
+                    setOpenOrderConfirm(true);
                 }  else {
                     logIn();
                 }
